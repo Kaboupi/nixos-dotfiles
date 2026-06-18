@@ -1,6 +1,19 @@
+![NixOS](https://img.shields.io/badge/-NIXOS-4D73B8?style=for-the-badge&logo=nixos&logoColor=white)
+![Hyprland](https://img.shields.io/badge/-HYPRLAND-DC6CA4?style=for-the-badge&logo=hyprland&logoColor=white)
+![NEOVIM](https://img.shields.io/badge/-NEOVIM-7CB95B?style=for-the-badge&logo=neovim&logoColor=white)
+
 # NixOS Dotfiles
 
 Modular NixOS configuration with Hyprland, built on Nix Flakes.
+
+---
+
+> ✨ **!!! WARNING !!!** ✨
+> 
+> This repo is under active changes, clone and use
+> at your own risk!
+
+---
 
 ## Structure
 
