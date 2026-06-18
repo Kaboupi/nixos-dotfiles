@@ -23,18 +23,24 @@
 
   services.openssh.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  programs.firefox.enable = true;
-
   # Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+  };
+
+  programs.firefox.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+
+  services.displayManager = {
+    sddm.enable = true;
+    defaultSession = "hyprland";
   };
 
   # Allow unfree packages
