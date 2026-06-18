@@ -174,13 +174,16 @@ nixosConfigurations."laptop" = mkHost "laptop";
 
 ## Troubleshooting
 
-**`nixos-rebuild` fails with missing files**
+### **`nixos-rebuild` fails with missing files**
+
 All files must be tracked by git. Run `git add -A` before rebuilding.
 
-**Boot fails after install**
+### **Boot fails after install**
+
 Verify `hosts/desktop/hardware.nix` contains your actual hardware configuration.
 You can boot from a live USB, mount your root partition, and regenerate it.
 
-**SDDM does not show Hyprland session**
+### **SDDM does not show Hyprland session**
+
 Ensure `programs.hyprland.enable = true` in `modules/desktop/hyprland.nix`
 and `services.displayManager.sddm.enable = true` in `modules/desktop/display-manager.nix`.
