@@ -1,4 +1,4 @@
-{ config, pkgs, cfg, ... }:
+{ pkgs, cfg, ... }:
 
 {
   home.username = cfg.username;
@@ -7,9 +7,7 @@
 
   programs.bash = {
     enable = true;
-    shellAliases = {
-      lasts = "last | grep still";
-    };
+    shellAliases = cfg.shellAliases;
   };
 
   home.file.".config/hypr".source = ./config/hypr;
