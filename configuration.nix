@@ -8,7 +8,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./virtualbox.nix
     ];
 
   # Bootloader.
@@ -17,15 +16,11 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.fsIdentifier = "provided";
 
-  networking.hostName = "kaboupi-nixos";
   # Enables wireless support via wpa_supplicant.
   networking.wireless.enable = true;  
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
+  networking.hostName = "kaboupi-nixos";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -53,18 +48,27 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."kaboupi" = {
+  users.users.kaboupi = {
     isNormalUser = true;
     description = "kaboupi";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      tree
+    ];
   };
+
+  services.getty.autologinUser = "kaboupi";
+
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    foot
+    hyprpaper
+    waybar
     curl
     git
     github-cli
@@ -74,72 +78,65 @@
     wofi
   ];
 
-  # Vim
-# TODO: Add .vimrc via nix not bash
-#  programs.vim = {
-#    enable = true;
-#    defaultEditor = true;
-#
-#    extraConfig = builtins.readFile (pkgs.fetchurl {
-#      url = "https://raw.githubusercontent.com/Kaboupi/vm-essentials/main/dotfiles/.vimrc";
-#      sha256 = "sha256-Am8Qnxy9DQ/nNRcsuEuIQTM/OLC3l6z1XBhsSsnRgfI";
-#    });
-#  };
-
   # Hyprland
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
     xwayland.enable = true;
+    # withUWSM = true;
   };
 
-  hardware = {
-    graphics.enable = true;
-  };
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+#  hardware = {
+#    graphics.enable = true;
+#  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # TODO: Enable frw w/ ufw
   networking.firewall.enable = false;
 
-  # !!! Do not change !!!
   system.stateVersion = "26.05"; 
 
   # Post-init-like scripts
-  system.activationScripts.downloadVimrc = {
+  system.activationScripts.setupVMEssentials = {
     text = ''
-      USER_HOME="/home/kaboupi"
+      TARGET_USER="kaboupi"
+      USER_HOME="/home/$TARGET_USER"
+
+      REPO_NAME="vm-essentials"
+      REPO_DIR="$USER_HOME/$REPO_NAME"
+      REPO_URL="git@github.com:Kaboupi/$REPO_NAME.git"
+
       if [ -d "$USER_HOME" ]; then
+        echo "|-- Sync vm-essentials repo"
 
-        echo "=== Get .vimrc from repo ==="
+        if [ -d "$REPO_DIR" ]; then
+          echo "|   `-- $REPO_DIR exists, pulling..."
+          cd "$REPO_DIR"
+          ${pkgs.git}/bin/git pull
+        else
+          echo "|   `-- $REPO_DIR does not exist, cloning..."
+          ${pkgs.git}/bin/git clone $REPO_URL
+        fi
 
-        DOWNLOADED_FILE=${pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/Kaboupi/vm-essentials/main/dotfiles/.vimrc";
-          sha256 = "sha256-Am8Qnxy9DQ/nNRcsuEuIQTM/OLC3l6z1XBhsSsnRgfI";
-        }}
+        echo "`-- Setup for user"
 
-        echo "=== Setup .vimrc for root ==="
-        cp -f "$DOWNLOADED_FILE" "/root/.vimrc"
-        chown root:root "/root/.vimrc"
-        chmod 644 "/root/.vimrc"
+        ln -sf "$REPO_DIR/dotfiles/.vimrc" "$USER_HOME/.vimrc"
+        ln -sf "$REPO_DIR/dotfiles/.bash_aliases" "$USER_HOME/.bash_aliases"
 
-        echo "=== Setup .vimrc for user ==="
-        cp -f "$DOWNLOADED_FILE" "$USER_HOME/.vimrc"
-        chown kaboupi:users "$USER_HOME/.vimrc"
-        chmod 644 "$USER_HOME/.vimrc"
+        chown -R $USER_NAME:users "$REPO_DIR"
+        chown -h $USER_NAME:users "$USER_HOME/.vimrc"
+
+        echo "`-- Setup for root"
+        mkdir -p /root/.config
+
+        ln -sf "$REPO_DIR/dotfiles/.vimrc" "/root/.vimrc"
+        chown -h root:root "/root/.vimrc"
+
       fi
     '';
   };
