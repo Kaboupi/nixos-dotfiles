@@ -19,8 +19,9 @@
             useUserPackages = true;	
             users.kabuoupi = true;	
             backupFileExtension = "bckp";	
+          };
         };
-      };
-    ];
+      ];
+    };
   };
 }
