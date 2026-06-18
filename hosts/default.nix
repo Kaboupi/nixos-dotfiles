@@ -1,27 +1,26 @@
-{ config, pkgs, ... }:
+{ config, pkgs, cfg, ... }:
 
 {
   imports = [
     ./hardware.nix
-    ../../modules/system/core.nix
+    ../modules/system/core.nix
   ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "kaboupi-nixos";
+  networking.hostName = cfg.hostname;
 
-  users.users.kaboupi = {
+  users.users.${cfg.username} = {
     isNormalUser = true;
-    description = "kaboupi";
+    description = cfg.username;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       tree
     ];
   };
 
-  services.getty.autologinUser = "kaboupi";
+  services.getty.autologinUser = cfg.username;
 
   environment.systemPackages = with pkgs; [
     curl
@@ -30,11 +29,12 @@
     github-cli
     hyprpaper
     kitty
+    nvim
     vim
     waybar
     wget
     wofi
   ];
 
-  system.stateVersion = "26.05"; 
+  system.stateVersion = cfg.stateVersion;
 }

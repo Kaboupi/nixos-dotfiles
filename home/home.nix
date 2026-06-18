@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, cfg, ... }:
 
 {
-  home.username = "kaboupi";
-	home.homeDirectory = "/home/kaboupi";
-	home.stateVersion = "26.05";
-	programs.bash = {
+  home.username = cfg.username;
+  home.homeDirectory = "/home/${cfg.username}";
+  home.stateVersion = cfg.stateVersion;
+
+  programs.bash = {
     enable = true;
     shellAliases = {
       lasts = "last | grep still";
