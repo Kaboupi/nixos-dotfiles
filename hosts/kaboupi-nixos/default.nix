@@ -8,7 +8,7 @@
   imports =
     [
       ./hardware.nix
-      ../../modules/system/core.nix.nix
+      ../../modules/system/core.nix
     ];
 
   # Bootloader.
