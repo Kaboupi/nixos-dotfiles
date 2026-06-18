@@ -10,4 +10,6 @@
       lasts = "last | grep still";
     };
   };
+
+  home.file.".config/hypr".source = ./config/hypr;
 }
