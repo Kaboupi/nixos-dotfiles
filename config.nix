@@ -9,13 +9,19 @@
 
   basePackages = [
     "curl"
+    "fd"
     "foot"
+    "gcc"
     "git"
     "github-cli"
+    "gnumake"
     "hyprpaper"
     "kitty"
+    "lazygit"
     "neovim"
+    "ripgrep"
     "tree"
+    "unzip"
     "vim"
     "waybar"
     "wget"
@@ -29,6 +35,7 @@
   ];
 
   shellAliases = {
+    n = "nvim";
     lasts = "last | grep still";
   };
 }

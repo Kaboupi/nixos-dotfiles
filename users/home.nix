@@ -1,4 +1,4 @@
-{ pkgs, cfg, ... }:
+{ pkgs, cfg, inputs, ... }:
 
 {
   home.username = cfg.username;
@@ -11,4 +11,5 @@
   };
 
   home.file.".config/hypr".source = ./config/hypr;
+  home.file.".config/nvim".source = inputs.lazy-vim;
 }
