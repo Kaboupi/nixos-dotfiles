@@ -1,4 +1,4 @@
-{ cfg, ... }:
+{ pkgs, cfg, ... }:
 
 {
   imports = [
@@ -25,7 +25,22 @@
 
   networking.hostName = cfg.hostname;
 
-  services.getty.autologinUser = cfg.username;
+  services.greetd = {
+    enable = true;
+    settings = {
+      # NOTE: Handles physical boot
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = cfg.username;
+      };
+      
+      # Fallback definition if you log out of Hyprland manually
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
 
   system.stateVersion = cfg.stateVersion;
 }
