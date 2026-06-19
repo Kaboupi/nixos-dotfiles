@@ -1,0 +1,19 @@
+show=drun
+
+width=35%
+height=40%
+
+prompt=Search Apps...
+image_size=24
+
+location=center
+
+insensitive=true
+always_parse_args=true
+show_all=false
+allow_images=true
+print_command=true
+
+display_generic=true
+layer=overlay
+hide_scroll=true

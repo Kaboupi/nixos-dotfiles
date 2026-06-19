@@ -15,7 +15,7 @@
         "docker"
         "extract"
       ];
-      theme = "robbyrussell";
+      theme = "refined";
     };
 
     shellAliases = cfg.shellAliases;

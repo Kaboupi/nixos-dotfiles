@@ -1,0 +1,65 @@
+/* /home/kaboupi/.config/wofi/style.css */
+
+/* The outer window container */
+window {
+    margin: 0px;
+    padding: 10px;
+    background-color: #1e1e2e;          /* Catppuccin Base */
+    border: 2px solid #89b4fa;          /* Crisp Blue Active Border Accent */
+    border-radius: 12px;                /* Smooth rounded corners matching Hyprland */
+}
+
+/* Internal layout framing */
+#inner-box {
+    margin: 4px;
+    padding: 4px;
+    background-color: #1e1e2e;
+}
+
+/* The application search input box */
+#input {
+    margin: 8px;
+    padding: 10px;
+    background-color: #11111b;          /* Darker Crust contrast background */
+    color: #cdd6f4;                     /* Crisp white text */
+    border: 1px solid #313244;          /* Subtle border separation */
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+/* Highlight style when the text entry box is active */
+#input:focus {
+    border: 1px solid #a6e3a1;          /* Changes to Soft Green when active */
+}
+
+/* The vertical scrolling list region */
+#scroll {
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Style for individual application rows */
+#entry {
+    margin: 3px 0px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+/* Hover / Keyboard Selection highlights */
+#entry:selected {
+    background-color: #313244;          /* Soft Surface highlight */
+}
+
+/* App Titles text styling */
+#text {
+    margin-left: 8px;
+    color: #cdd6f4;
+    font-size: 14px;
+}
+
+/* Text style changes specifically for the selected item */
+#text:selected {
+    color: #89b4fa;                     /* Pops into Light Blue when selected */
+    font-weight: bold;
+}

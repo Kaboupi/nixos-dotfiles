@@ -11,8 +11,9 @@
     ../../modules/core/nix.nix
     ../../modules/core/pipewire.nix
 
-    ../../modules/services/openssh.nix
     ../../modules/services/docker.nix
+    ../../modules/services/openssh.nix
+    ../../modules/services/tumbler.nix
 
     ../../modules/desktop/display-manager.nix
     ../../modules/desktop/fonts.nix
