@@ -22,6 +22,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit cfg; };
               users.${cfg.username} = import ./users/home.nix;
               backupFileExtension = "bckp";
             };
