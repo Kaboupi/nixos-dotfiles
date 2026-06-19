@@ -71,7 +71,7 @@ cd /mnt/etc/nixos
 ### 3. Generate initial hardware configuration
 
 ```bash
-nixos-generate-config --show-hardware-config > hosts/desktop/hardware.nix
+nixos-generate-config --root /mnt --show-hardware-config > hosts/desktop/hardware.nix
 ```
 
 This creates and moves `hardware-configuration.nix` (renamed as `hardware.nix`)
