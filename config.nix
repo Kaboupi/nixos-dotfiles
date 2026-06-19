@@ -40,10 +40,12 @@
   ];
 
   userPackages = [
+    "fastfetch"
   ];
 
   shellAliases = {
     n = "nvim";
+    update = "sudo nixos-rebuild switch --flake /etc/nixos";
   };
 
   # NOTE: It's not recommended to change this variable.
