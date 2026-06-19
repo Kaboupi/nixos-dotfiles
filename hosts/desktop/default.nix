@@ -4,16 +4,19 @@
   imports = [
     ./hardware.nix
 
+    ../../modules/core/bluetooth.nix
     ../../modules/core/boot.nix
     ../../modules/core/locale.nix
     ../../modules/core/networking.nix
     ../../modules/core/nix.nix
+    ../../modules/core/pipewire.nix
 
     ../../modules/services/openssh.nix
     ../../modules/services/docker.nix
 
-    ../../modules/desktop/hyprland.nix
     ../../modules/desktop/display-manager.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/desktop/hyprland.nix
     ../../modules/desktop/packages.nix
 
     ../../users

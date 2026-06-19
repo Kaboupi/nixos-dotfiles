@@ -1,6 +1,6 @@
 {
   username = "kaboupi";
-  hostname = "kaboupi-nixos";
+  hostname = "nixos-homelab";
 
   timezone = "Europe/Moscow";
   locale = "en_US.UTF-8";
@@ -25,6 +25,8 @@
     "kitty"
     "lazygit"
     "neovim"
+    "python3"
+    "quickshell"
     "ripgrep"
     "tree"
     "unzip"
