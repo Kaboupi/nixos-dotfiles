@@ -10,5 +10,11 @@
       "wheel"
     ];
     packages = map (name: pkgs.${name}) cfg.userPackages;
+
+    # NOTE: Add keys after initial setup
+    #
+    # openssh.authorizedKeys.keys = [
+    #
+    # ];
   };
 }

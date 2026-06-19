@@ -5,7 +5,13 @@
   timezone = "Europe/Moscow";
   locale = "en_US.UTF-8";
 
-  stateVersion = "26.05";
+  # NOTE: Port 22 is widely used across SSH conenctions.
+  # Change it to any other usable port (ex. 18231, 22222)
+  sshPorts = [ 22 ];
+
+  # NOTE: Change it to `false` after initial setup
+  # and switch to SSH keys instead: ./users/default.nix
+  sshPasswordAuthentication = true;
 
   basePackages = [
     "curl"
@@ -36,6 +42,9 @@
 
   shellAliases = {
     n = "nvim";
-    lasts = "last | grep still";
   };
+
+  # NOTE: It's not recommended to change this variable.
+  # Change at your own risk.
+  stateVersion = "26.05";
 }
