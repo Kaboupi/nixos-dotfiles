@@ -14,6 +14,7 @@
     ".config/hypr".source = ./config/hypr;
     ".config/kitty".source = ./config/kitty;
     ".config/quickshell".source = ./config/quickshell;
+    ".config/rofi".source = ./config/rofi;
     ".config/wofi".source = ./config/wofi;
   };
 

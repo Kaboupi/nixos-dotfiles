@@ -13,41 +13,12 @@
   # and switch to SSH keys instead: ./users/default.nix
   sshPasswordAuthentication = true;
 
-  basePackages = [
-    "curl"
-    "fd"
-    "foot"
-    "gcc"
-    "git"
-    "github-cli"
-    "gnumake"
-    "grim"
-    "hyprlock"
-    "hyprpaper"
-    "kitty"
-    "lazygit"
-    "loupe"
-    "neovim"
-    "python3"
-    "quickshell"
-    "ripgrep"
-    "slurp"
-    "thunar"
-    "tree"
-    "tty-clock"
-    "unzip"
-    "vim"
-    "waybar"
-    "wget"
-    "wl-clipboard"
-    "wofi"
-  ];
-
   extraPackages = [
   ];
 
   userPackages = [
     "fastfetch"
+    "telegram-desktop"
   ];
 
   shellAliases = {
