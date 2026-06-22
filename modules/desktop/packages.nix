@@ -4,6 +4,7 @@ let
   basePackages = [
     "btop"
     "curl"
+    "exiftool"
     "fd"
     "ffmpegthumbnailer"
     "fontforge"
@@ -12,17 +13,22 @@ let
     "gcc"
     "git"
     "github-cli"
+    "glow"
     "gnumake"
     "grim"
     "hyprlock"
     "hyprpaper"
+    "imagemagick"
+    "jq"
     "kitty"
     "lazygit"
     "loupe"
+    "mpv"
     "neovim"
     "nodejs"
     "pavucontrol"
     "poppler"
+    "poppler-utils"
     "pulsemixer"
     "python3"
     "quickshell"
@@ -37,6 +43,7 @@ let
     "wget"
     "wl-clipboard"
     "yazi"
+    "zoxide"
   ];
 in
 {

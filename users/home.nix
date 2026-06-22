@@ -1,6 +1,12 @@
 { pkgs, cfg, inputs, ... }:
 
 {
+  imports = [
+    ./programs/caelestia.nix
+    ./programs/firefox.nix
+    ./programs/yazi.nix
+  ];
+
   home.username = cfg.username;
   home.homeDirectory = "/home/${cfg.username}";
   home.stateVersion = cfg.stateVersion;
@@ -10,7 +16,6 @@
     ".config/kitty".source = ./config/kitty;
     ".config/quickshell".source = ./config/quickshell;
     ".config/rofi".source = ./config/rofi;
-    ".config/yazi".source = ./config/yazi;
   };
 
   xdg.mimeApps = {
