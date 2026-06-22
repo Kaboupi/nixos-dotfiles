@@ -6,6 +6,7 @@ let
     "curl"
     "fd"
     "ffmpegthumbnailer"
+    "fontforge"
     "foot"
     "fzf"
     "gcc"
@@ -20,21 +21,20 @@ let
     "loupe"
     "neovim"
     "nodejs"
+    "pavucontrol"
     "poppler"
+    "pulsemixer"
     "python3"
     "quickshell"
     "ripgrep"
     "rofi"
     "slurp"
-    "thunar"
     "tree"
     "tty-clock"
     "unzip"
     "vim"
-    "waybar"
     "wget"
     "wl-clipboard"
-    "wofi"
     "yazi"
   ];
 in
@@ -49,4 +49,13 @@ in
     stdenv.cc.cc
     zlib
   ];
+
+  programs.yazi = {
+    enable = true;
+
+    plugins = {
+      glow = pkgs.yaziPlugins.glow;
+      # exiftool = pkgs.yaziPlugins.exiftool;
+    };
+  };
 }

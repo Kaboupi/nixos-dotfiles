@@ -4,6 +4,9 @@
   imports = [
     ./hardware.nix
 
+    ########
+    # CORE #
+    ########
     ../../modules/core/bluetooth.nix
     ../../modules/core/boot.nix
     ../../modules/core/locale.nix
@@ -11,14 +14,26 @@
     ../../modules/core/nix.nix
     ../../modules/core/pipewire.nix
 
+    ############
+    # SERVICES #
+    ############
+    ../../modules/services/blueman.nix
     ../../modules/services/docker.nix
     ../../modules/services/openssh.nix
     ../../modules/services/tumbler.nix
 
+    ############
+    # GENERAL #
+    ############
     ../../modules/desktop/display-manager.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/desktop/packages.nix
+    #
+    ############
+    # PROGRAMS #
+    ############
+    # ../../modules/programs/?
 
     ../../users
   ];

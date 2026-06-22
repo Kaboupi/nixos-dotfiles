@@ -14,9 +14,8 @@
     ".config/hypr".source = ./config/hypr;
     ".config/kitty".source = ./config/kitty;
     ".config/quickshell".source = ./config/quickshell;
-    ".config/yazi".source = ./config/yazi;
     ".config/rofi".source = ./config/rofi;
-    ".config/wofi".source = ./config/wofi;
+    ".config/yazi".source = ./config/yazi;
   };
 
   xdg.mimeApps = {
