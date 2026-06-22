@@ -4,6 +4,7 @@
   imports = [
     ./programs/caelestia.nix
     ./programs/firefox.nix
+    ./programs/kitty.nix
     ./programs/yazi.nix
   ];
 
@@ -13,8 +14,6 @@
 
   home.file = {
     ".config/hypr".source = ./config/hypr;
-    ".config/kitty".source = ./config/kitty;
-    ".config/quickshell".source = ./config/quickshell;
     ".config/rofi".source = ./config/rofi;
   };
 
