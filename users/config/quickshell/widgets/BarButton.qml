@@ -3,17 +3,25 @@ import QtQuick.Layouts
 
 Rectangle {
     id: control
+
     property string iconText: ""
-    property string statusText: "Loading..."
+    property string label: ""
     property bool active: false
+    property bool menuOpen: false
     property alias mouseArea: clickTarget
 
+    signal clicked(var mouse)
+
     implicitWidth: layoutRow.implicitWidth + 16
-    implicitHeight: 26
+    implicitHeight: 28
     radius: 6
-    color: active ? "#313244" : "#11111b"
+    color: menuOpen ? "#313244" : (active ? "#45475a" : "transparent")
     border.color: active ? "#89b4fa" : "transparent"
     border.width: 1
+
+    Behavior on color {
+        ColorAnimation { duration: 150 }
+    }
 
     RowLayout {
         id: layoutRow
@@ -23,13 +31,14 @@ Rectangle {
         Text {
             text: control.iconText
             color: control.active ? "#89b4fa" : "#6c7086"
-            font.pointSize: 11
+            font.pointSize: 12
         }
 
         Text {
-            text: control.statusText
+            text: control.label
             color: "#cdd6f4"
             font.pointSize: 10
+            visible: control.label.length > 0
         }
     }
 
@@ -38,7 +47,8 @@ Rectangle {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         hoverEnabled: true
-        onEntered: control.opacity = 0.8
+        onClicked: (mouse) => control.clicked(mouse)
+        onEntered: control.opacity = 0.85
         onExited: control.opacity = 1.0
     }
 }

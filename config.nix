@@ -18,11 +18,13 @@
 
   userPackages = [
     "fastfetch"
+    "obs-studio"
     "telegram-desktop"
   ];
 
   shellAliases = {
     n = "nvim";
+    ff = "fastfetch";
     update = "sudo nixos-rebuild switch --flake /etc/nixos";
   };
 

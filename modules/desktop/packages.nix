@@ -29,6 +29,7 @@ let
     "ripgrep"
     "rofi"
     "slurp"
+    "steam-run"
     "tree"
     "tty-clock"
     "unzip"
