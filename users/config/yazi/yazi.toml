@@ -1,0 +1,14 @@
+[manager]
+show_hidden = true
+show_symlink = true
+
+[opener]
+edit = [ { run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" } ]
+open = [ { run = 'xdg-open "$@"', desc = "Open", for = "unix" } ]
+image = [ { run = 'xdg-open "$@"', desc = "Open" } ]
+
+[preview]
+# NOTE: Critical for Kitty + Hyprland
+image_preview_delay = 10
+max_width = 1500
+max_height = 1500

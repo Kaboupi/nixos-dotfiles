@@ -5,7 +5,9 @@ let
     "btop"
     "curl"
     "fd"
+    "ffmpegthumbnailer"
     "foot"
+    "fzf"
     "gcc"
     "git"
     "github-cli"
@@ -18,6 +20,7 @@ let
     "loupe"
     "neovim"
     "nodejs"
+    "poppler"
     "python3"
     "quickshell"
     "ripgrep"
@@ -32,6 +35,7 @@ let
     "wget"
     "wl-clipboard"
     "wofi"
+    "yazi"
   ];
 in
 {
