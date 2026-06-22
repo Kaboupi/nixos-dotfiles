@@ -13,7 +13,6 @@
   home.file = {
     ".config/hypr".source = ./config/hypr;
     ".config/kitty".source = ./config/kitty;
-    ".config/nvim".source = inputs.lazy-vim;
     ".config/quickshell".source = ./config/quickshell;
     ".config/wofi".source = ./config/wofi;
   };

@@ -51,11 +51,28 @@
         "type": "indirect"
       }
     },
+    "nvim-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781707576,
+        "narHash": "sha256-uXtlnS4TFcUf5vJXFIHNqj3JZnwdmR0Te8hl1ITYDDY=",
+        "owner": "Kaboupi",
+        "repo": "nvim-config",
+        "rev": "6ac2d2527a1c2d55f0029812ac43c164a8da31b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kaboupi",
+        "repo": "nvim-config",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "lazy-vim": "lazy-vim",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nvim-config": "nvim-config"
       }
     }
   },
