@@ -10,6 +10,6 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
-    font-awesome  # NOTE: Essential for many Waybar icon setups
+    font-awesome
   ];
 }

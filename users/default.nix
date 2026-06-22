@@ -1,25 +1,13 @@
 { pkgs, cfg, ... }:
 
 {
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "sudo"
-        "docker"
-        "extract"
-      ];
-      theme = "refined";
-    };
-
-    shellAliases = cfg.shellAliases;
-  };
+  imports = [
+    ./programs/bash.nix
+    ./programs/caelestia.nix
+    ./programs/firefox.nix
+    ./programs/yazi.nix
+    ./programs/zsh.nix
+  ];
 
   users.users.${cfg.username} = {
     isNormalUser = true;

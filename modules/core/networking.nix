@@ -1,6 +1,7 @@
 { cfg, ... }:
 
 {
+  networking.hostName = cfg.hostname;
   networking.networkmanager.enable = true;
   networking.wireless.enable = true;
   networking.firewall.enable = true;
