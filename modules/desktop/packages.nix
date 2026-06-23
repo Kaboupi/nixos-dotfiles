@@ -6,6 +6,7 @@ let
     "btop"
     "curl"
     "exiftool"
+    "fail2ban"
     "fd"
     "ffmpegthumbnailer"
     "fontforge"
