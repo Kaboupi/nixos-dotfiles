@@ -10,18 +10,17 @@ Modular NixOS configuration with Hyprland, built on Nix Flakes.
 
 ---
 
-> ✨ **!!! WARNING !!!** ✨
+> [!WARNING]
 > 
-> This repo is under active changes, clone and use
-> at your own risk!
-> 
-> **TODO:**
-> 
-> - [ ] Test `caelestia-shell` install from scratch
-> - [ ] Hyprland Luacification (0.55)
-> - [ ] Rofi config
-> - [ ] Yazi config & plugins
-> - [ ] Fix mpv fullscreen errors
+> This repo is under active changes,
+> clone and use **at your own risk**!
+
+Not yet tested / implemented:
+- Test `caelestia-shell` install from scratch
+- `Hyprland` Lua-cification (0.55)
+- Configs for `rofi`
+- Configs and plugins for `yazi`
+- Fixes to `mpv` when fullscreen
 
 ---
 
