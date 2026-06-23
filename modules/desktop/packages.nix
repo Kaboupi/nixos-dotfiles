@@ -1,6 +1,7 @@
 { pkgs, cfg, ... }:
 
 let
+  # "hyprlock"
   basePackages = [
     "btop"
     "curl"
@@ -16,7 +17,6 @@ let
     "glow"
     "gnumake"
     "grim"
-    "hyprlock"
     "hyprpaper"
     "imagemagick"
     "jq"
