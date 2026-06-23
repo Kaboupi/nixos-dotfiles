@@ -26,6 +26,7 @@ let
     "mpv"
     "neovim"
     "nodejs"
+    "openssl"
     "pavucontrol"
     "poppler"
     "poppler-utils"
