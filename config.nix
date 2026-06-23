@@ -18,6 +18,7 @@
 
   userPackages = [
     "fastfetch"
+    "lsd"
     "obs-studio"
     "telegram-desktop"
   ];

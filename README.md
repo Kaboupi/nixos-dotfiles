@@ -6,6 +6,8 @@
 
 Modular NixOS configuration with Hyprland, built on Nix Flakes.
 
+![Sample look](./.github/assets/example.png)
+
 ---
 
 > ✨ **!!! WARNING !!!** ✨
