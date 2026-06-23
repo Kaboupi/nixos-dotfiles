@@ -12,37 +12,16 @@ Modular NixOS configuration with Hyprland, built on Nix Flakes.
 > 
 > This repo is under active changes, clone and use
 > at your own risk!
+> 
+> **TODO:**
+> 
+> - [ ] Test `caelestia-shell` install from scratch
+> - [ ] Hyprland Luacification (0.55)
+> - [ ] Rofi config
+> - [ ] Yazi config & plugins
+> - [ ] Fix mpv fullscreen errors
 
 ---
-
-## Structure
-
-```text
-.
-├── config.nix                  # Global variables (username, timezone, etc.)
-├── flake.nix                   # Flake entry point
-├── hosts/
-│   └── desktop/
-│       ├── default.nix         # Host-specific imports and settings
-│       └── hardware.nix        # Hardware configuration
-├── modules/
-│   ├── core/                   # Essential system settings
-│   │   ├── boot.nix            # Bootloader
-│   │   ├── locale.nix          # Timezone and locale
-│   │   ├── networking.nix      # Network, firewall
-│   │   └── nix.nix             # Nix settings, flakes
-│   ├── services/               # System daemons
-│   │   ├── docker.nix
-│   │   └── openssh.nix
-│   └── desktop/                # Desktop environment
-│       ├── display-manager.nix
-│       ├── hyprland.nix
-│       └── packages.nix
-└── users/
-    ├── default.nix             # System user definition (parametrized via config.nix)
-    ├── home.nix                # Home Manager config
-    └── config/hypr/            # Hyprland dotfiles
-```
 
 ## Prerequisites
 
@@ -55,8 +34,7 @@ This covers everything from an empty disk to a working Hyprland desktop.
 
 ### 1. Partition and format disks
 
-Partition the disk (example for UEFI + single root partition),
-format and mount partitions
+Partition the disk, format and mount partitions
 
 ### 2. Clone this repository
 
@@ -85,9 +63,9 @@ Edit `config.nix` with your parameters:
 {
   username = "username";
   hostname = "my-nixos";
-  timezone = "Europe/Moscow";
-  locale = "en_US.UTF-8";
-  stateVersion = "26.05";
+  sshPorts = [ 2222 ];
+
+  # Other params...
 }
 ```
 
@@ -163,15 +141,15 @@ sudo nixos-rebuild switch --flake .#my-nixos
 Edit `config.nix`:
 
 ```nix
-basePackages = [
-  # system-wide packages
+# user packages
+userPackages = [
   "curl"
   "git"
   # add more here
 ];
 
+# additional system packages
 extraPackages = [
-  # additional system packages
 ];
 ```
 
