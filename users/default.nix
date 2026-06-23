@@ -2,7 +2,7 @@
 
 {
   programs.bash = {
-    enable = false;
+    enable = true;
     shellAliases = cfg.shellAliases;
   };
 
@@ -14,12 +14,7 @@
 
     ohMyZsh = {
       enable = true;
-      plugins = [
-        "git"
-        "sudo"
-        "docker"
-        "extract"
-      ];
+      plugins = [ "docker" "extract" "git" "sudo" ];
       theme = "refined";
     };
 
@@ -29,14 +24,8 @@
   users.users.${cfg.username} = {
     isNormalUser = true;
     description = cfg.username;
-    extraGroups = [
-      "docker"
-      "networkmanager"
-      "wheel"
-    ];
-
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     packages = map (name: pkgs.${name}) cfg.userPackages;
-
     shell = pkgs.zsh;
 
     # NOTE: Add keys after initial setup

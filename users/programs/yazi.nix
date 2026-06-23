@@ -34,15 +34,9 @@
       };
 
       opener = {
-        edit = [
-          { run = "nvim \"$@\""; block = true; desc = "Открыть в Neovim"; }
-        ];
-        play = [
-          { run = "mpv \"$@\""; orphan = true; desc = "Запустить видео в MPV"; }
-        ];
-        open = [
-          { run = "xdg-open \"$@\""; desc = "Открыть по умолчанию"; }
-        ];
+        edit = [ { run = "nvim \"$@\""; block = true; desc = "Открыть в Neovim"; } ];
+        play = [ { run = "mpv \"$@\""; orphan = true; desc = "Запустить видео в MPV"; } ];
+        open = [ { run = "xdg-open \"$@\""; desc = "Открыть по умолчанию"; } ];
       };
 
       open = {
@@ -60,7 +54,6 @@
 
       plugin = {
         previewers = [
-          # { mime = "image/*"; run = "exif"; }
           { mime = "image/*"; run = "image"; }
           { url = "*.md"; run = "edit"; }
           { mime = "application/json"; run = "jq"; }

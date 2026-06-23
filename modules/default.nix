@@ -21,6 +21,7 @@
     ./services/greetd.nix
     ./services/openssh.nix
     ./services/pipewire.nix
+    ./services/rtkit.nix
     ./services/tumbler.nix
   ];
 }
