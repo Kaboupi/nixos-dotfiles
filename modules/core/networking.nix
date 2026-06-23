@@ -1,9 +1,30 @@
 { cfg, ... }:
 
 {
-  networking.hostName = cfg.hostname;
-  networking.networkmanager.enable = true;
-  networking.wireless.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = cfg.sshPorts;
+  networking = {
+    hostName = cfg.hostname;
+
+    networkmanager = {
+      enable = true;
+    };
+
+    wireless = {
+      enable = true;
+    };
+
+    firewall = {
+      enable = true;
+
+      allowedTCPPorts = cfg.sshPorts;
+      allowedUDPPorts = [ ];
+
+      trustedInterfaces = [ "docker0" "br-+" ];
+      checkReversePath = "loose";
+    };
+
+    nat = {
+      enable = true;
+      internalInterfaces = [ "docker0" ];
+    };
+  };
 }
