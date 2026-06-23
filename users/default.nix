@@ -22,16 +22,18 @@
   };
 
   users.users.${cfg.username} = {
-    isNormalUser = true;
     description = cfg.username;
+    isNormalUser = true;
     extraGroups = [ "docker" "networkmanager" "wheel" ];
+
     packages = map (name: pkgs.${name}) cfg.userPackages;
+
     shell = pkgs.zsh;
 
     # NOTE: Add keys after initial setup
     #
-    # openssh.authorizedKeys.keys = [
-    #
+    # openssh.authorizedKeys.keyFiles = [
+    #   ./keys/key.pub
     # ];
   };
 }
