@@ -13,14 +13,17 @@
   # and switch to SSH keys instead: ./users/default.nix
   sshPasswordAuthentication = true;
 
-  extraPackages = [
-  ];
+  # NOTE: Add keys after initial setup
+  sshAuthorizedKeys = [];
 
   userPackages = [
     "fastfetch"
     "lsd"
     "obs-studio"
     "telegram-desktop"
+  ];
+
+  extraPackages = [
   ];
 
   shellAliases = {

@@ -30,10 +30,6 @@
 
     shell = pkgs.zsh;
 
-    # NOTE: Add keys after initial setup
-    #
-    # openssh.authorizedKeys.keyFiles = [
-    #   ./keys/key.pub
-    # ];
+    openssh.authorizedKeys.keyFiles = cfg.sshAuthorizedKeys;
   };
 }
