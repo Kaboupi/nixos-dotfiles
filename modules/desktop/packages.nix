@@ -3,6 +3,7 @@
 let
   # "hyprlock"
   basePackages = [
+    "bat"
     "btop"
     "curl"
     "exiftool"
@@ -24,6 +25,7 @@ let
     "kitty"
     "lazygit"
     "loupe"
+    "lsd"
     "mpv"
     "neovim"
     "nodejs"

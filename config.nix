@@ -24,8 +24,12 @@
   ];
 
   shellAliases = {
-    n = "nvim";
     ff = "fastfetch";
+    la = "lsd -a -1 --color=auto";
+    ll = "lsd -l --color=auto";
+    lla = "lsd -l -a -1 --color=auto";
+    ls = "lsd --color=auto";
+    n = "nvim";
     update = "sudo nixos-rebuild switch --flake /etc/nixos";
   };
 
