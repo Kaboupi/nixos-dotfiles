@@ -30,6 +30,6 @@
 
     shell = pkgs.zsh;
 
-    openssh.authorizedKeys.keyFiles = cfg.sshAuthorizedKeys;
+    openssh.authorizedKeys.keys = cfg.sshAuthorizedKeys;
   };
 }
