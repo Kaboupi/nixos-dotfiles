@@ -5,6 +5,7 @@
   timezone = "Europe/Moscow";
   locale = "en_US.UTF-8";
 
+  # SSH
   # NOTE: Port 22 is widely used across SSH conenctions.
   # Change it to any other usable port (ex. 18231, 22222)
   sshPorts = [ 22 ];
@@ -16,6 +17,11 @@
   # NOTE: Add keys after initial setup
   sshAuthorizedKeys = [];
 
+  # PORTS
+  allowedTCPPorts = [];
+  allowedUDPPorts = [];
+
+  # PACKAGES
   userPackages = [
     "fastfetch"
     "lsd"
@@ -26,6 +32,7 @@
   extraPackages = [
   ];
 
+  # ALIASES
   shellAliases = {
     ff = "fastfetch";
     la = "lsd -a -1 --color=auto";
