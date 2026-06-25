@@ -7,6 +7,7 @@ lib.mkIf (cfg.pkgsOptions.yazi.install or false) {
     enableZshIntegration = true;
 
     plugins = {
+      chmod = pkgs.yaziPlugins.chmod;
       lazygit = pkgs.yaziPlugins.lazygit;
       mediainfo = pkgs.yaziPlugins.mediainfo;
       piper = pkgs.yaziPlugins.piper;
@@ -78,6 +79,7 @@ lib.mkIf (cfg.pkgsOptions.yazi.install or false) {
         { on = ["<C-g>"]; run = "plugin lazygit"; desc = "Lazygit"; }
 
         { on = ["<S-Y>"]; run = "plugin wl-clipboard"; desc = "WLC"; }
+        { on = ["<S-M>"]; run = "plugin chmod"; desc = "Change file[s] mode"; }
 
         { on = ["<F3>"]; run = "plugin mediainfo -- toggle-metadata"; desc = "Toggle metadata"; }
         { on = ["<F4>"]; run = "plugin mediainfo -- toggle-preview"; desc = "Toggle preview"; }
