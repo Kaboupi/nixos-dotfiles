@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, cfg, ... }:
 
-{
+lib.mkIf (cfg.install.yazi or false) {
   programs.yazi = {
     enable = true;
     enableBashIntegration = true;

@@ -29,8 +29,14 @@
     "telegram-desktop"
   ];
 
-  extraPackages = [
-  ];
+  extraPackages = [];
+
+  # PACKAGE FLAGS
+  install = {
+    caelestia = true;
+    kitty = true;
+    yazi = true;
+  };
 
   # ALIASES
   shellAliases = {

@@ -1,4 +1,4 @@
-{ pkgs, cfg, ... }:
+{ pkgs, cfg, lib, ... }:
 
 let
   # "hyprlock"
@@ -6,23 +6,17 @@ let
     "bat"
     "btop"
     "curl"
-    "exiftool"
     "fail2ban"
     "fd"
-    "ffmpegthumbnailer"
     "fontforge"
-    "foot"
     "fzf"
     "gcc"
     "git"
     "github-cli"
-    "glow"
     "gnumake"
     "grim"
     "hyprpaper"
-    "imagemagick"
     "jq"
-    "kitty"
     "lazygit"
     "loupe"
     "lsd"
@@ -46,10 +40,29 @@ let
     "vim"
     "wget"
     "wl-clipboard"
-    "yazi"
     "zoxide"
   ];
 in
 {
-  environment.systemPackages = map (name: pkgs.${name}) (basePackages ++ cfg.extraPackages);
+  environment.systemPackages = let
+    allStringNames = lib.flatten (
+      basePackages
+
+      # NOTE: Extra from config
+      ++ cfg.extraPackages
+
+      # yazi
+      ++ lib.optional (cfg.install.yazi or false) [
+        "exiftool"
+        "ffmpegthumbnailer"
+        "glow"
+        "imagemagick"
+        "yazi"
+      ]
+
+      # kitty
+      ++ lib.optional (cfg.install.kitty or false) [ "kitty" ]
+    );
+  in
+    map (name: pkgs.${name}) allStringNames;
 }
