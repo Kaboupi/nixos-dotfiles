@@ -1,6 +1,6 @@
 { pkgs, lib, cfg, ... }:
 
-lib.mkIf (cfg.install.kitty or false) {
+lib.mkIf (cfg.pkgsOptiona.kitty.install or false) {
   programs.kitty = {
     enable = true;
 

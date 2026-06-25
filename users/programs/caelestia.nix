@@ -5,7 +5,7 @@
     inputs.caelestia-shell.homeManagerModules.default
   ];
 
-  config = lib.mkIf (cfg.install.caelestia or false) {
+  config = lib.mkIf (cfg.pkgsOptions.caelestia.install or false) {
     programs.caelestia = {
       enable = true;
 

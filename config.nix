@@ -32,10 +32,14 @@
   extraPackages = [];
 
   # PACKAGE FLAGS
-  install = {
-    caelestia = true;
-    kitty = true;
-    yazi = true;
+  pkgsOptions = {
+    hyprland = {
+      install = true;
+      mainMod = "SUPER";
+    };
+    caelestia = { install = true; };
+    kitty = { install = true; };
+    yazi = { install = true; };
   };
 
   # ALIASES

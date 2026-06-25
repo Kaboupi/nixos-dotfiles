@@ -52,7 +52,7 @@ in
       ++ cfg.extraPackages
 
       # yazi
-      ++ lib.optional (cfg.install.yazi or false) [
+      ++ lib.optional (cfg.pkgsOptions.yazi.install or false) [
         "exiftool"
         "ffmpegthumbnailer"
         "glow"
@@ -61,7 +61,7 @@ in
       ]
 
       # kitty
-      ++ lib.optional (cfg.install.kitty or false) [ "kitty" ]
+      ++ lib.optional (cfg.pkgsOptions.kitty.install or false) [ "kitty" ]
     );
   in
     map (name: pkgs.${name}) allStringNames;
