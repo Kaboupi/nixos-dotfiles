@@ -52,10 +52,10 @@ in
 
       # yazi
       ++ lib.optional (cfg.pkgsOptions.yazi.install or false) [
-        "exiftool"
         "ffmpegthumbnailer"
         "glow"
         "imagemagick"
+        "mediainfo"
         "yazi"
       ]
 

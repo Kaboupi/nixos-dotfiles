@@ -10,6 +10,7 @@
     ./core/nix.nix
 
     # DESKTOP
+    ./desktop/environment.nix
     ./desktop/fonts.nix
     ./desktop/hyprland.nix
     ./desktop/packages.nix

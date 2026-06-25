@@ -19,7 +19,6 @@ Not yet tested / implemented:
 - Test `caelestia-shell` install from scratch
 - `Hyprland` Lua-cification (0.55)
 - Configs for `rofi`
-- Configs and plugins for `yazi`
 - Fixes to `mpv` when fullscreen
 
 ---

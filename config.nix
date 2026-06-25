@@ -5,6 +5,8 @@
   timezone = "Europe/Moscow";
   locale = "en_US.UTF-8";
 
+  defaultEditor = "nvim";
+
   # SSH
   # NOTE: Port 22 is widely used across SSH conenctions.
   # Change it to any other usable port (ex. 18231, 22222)
@@ -23,6 +25,7 @@
 
   # PACKAGES
   userPackages = [
+    "eza"
     "fastfetch"
     "lsd"
     "obs-studio"

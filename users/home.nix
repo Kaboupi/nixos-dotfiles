@@ -11,6 +11,9 @@
   home.username = cfg.username;
   home.homeDirectory = "/home/${cfg.username}";
   home.stateVersion = cfg.stateVersion;
+  home.sessionVariables = {
+    EDITOR = cfg.defaultEditor;
+  };
 
   home.file = {
     ".config/hypr".source = ./config/hypr;
