@@ -53,6 +53,10 @@
     update = "sudo nixos-rebuild switch --flake /etc/nixos";
   };
 
+  devShells = {
+    py3 = "nix-shell /etc/nixos/shells/py3.nix";
+  };
+
   # NOTE: It's not recommended to change this variable.
   # Change at your own risk.
   stateVersion = "26.05";

@@ -3,7 +3,7 @@
 {
   programs.bash = {
     enable = true;
-    shellAliases = cfg.shellAliases;
+    shellAliases = cfg.shellAliases // cfg.devShells;
   };
 
   programs.zsh = {
@@ -18,7 +18,7 @@
       theme = "refined";
     };
 
-    shellAliases = cfg.shellAliases;
+    shellAliases = cfg.shellAliases // cfg.devShells;
   };
 
   users.users.${cfg.username} = {
