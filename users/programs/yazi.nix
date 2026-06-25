@@ -34,9 +34,9 @@ lib.mkIf (cfg.pkgsOptions.yazi.install or false) {
       };
 
       opener = {
-        edit = [ { run = "nvim \"$@\""; block = true; desc = "Открыть в Neovim"; } ];
-        play = [ { run = "mpv \"$@\""; orphan = true; desc = "Запустить видео в MPV"; } ];
-        open = [ { run = "xdg-open \"$@\""; desc = "Открыть по умолчанию"; } ];
+        edit = [ { run = "nvim \"$@\""; block = true; desc = "Open in Neovim"; } ];
+        play = [ { run = "mpv \"$@\""; orphan = true; desc = "Open in MPV"; } ];
+        open = [ { run = "xdg-open \"$@\""; desc = "Open with default handler"; } ];
       };
 
       open = {

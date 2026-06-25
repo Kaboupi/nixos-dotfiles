@@ -1,7 +1,6 @@
 { pkgs, cfg, lib, ... }:
 
 let
-  # "hyprlock"
   basePackages = [
     "bat"
     "btop"
