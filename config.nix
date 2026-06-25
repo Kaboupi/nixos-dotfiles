@@ -8,7 +8,7 @@
   # SSH
   # NOTE: Port 22 is widely used across SSH conenctions.
   # Change it to any other usable port (ex. 18231, 22222)
-  sshPorts = [ 22 ];
+  sshPort = 22;
 
   # NOTE: Change it to `false` after initial setup
   # and switch to SSH keys instead: ./users/default.nix

@@ -15,7 +15,7 @@
     firewall = {
       enable = true;
 
-      allowedTCPPorts = cfg.allowedTCPPorts ++ cfg.sshPorts;
+      allowedTCPPorts = cfg.allowedTCPPorts ++ [ cfg.sshPort ];
       allowedUDPPorts = cfg.allowedUDPPorts;
 
       trustedInterfaces = [ "docker0" "br-+" ];

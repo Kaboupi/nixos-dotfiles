@@ -3,12 +3,12 @@
 {
   services.openssh = {
     enable = true;
-    ports = cfg.sshPorts;
+    ports = [ cfg.sshPort ];
 
     listenAddresses = [
       {
         addr = "0.0.0.0";
-        port = cfg.sshPorts;
+        port = cfg.sshPort;
       }
     ];
 

@@ -64,7 +64,7 @@ Edit `config.nix` with your parameters:
 {
   username = "username";
   hostname = "my-nixos";
-  sshPorts = [ 2222 ];
+  sshPort = 2222;
 
   # Other params...
 }
