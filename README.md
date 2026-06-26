@@ -43,6 +43,8 @@ Partition the disk, format and mount partitions
 ```bash
 # Ensure git and flakes are available (they should be in the installer)
 nix-shell -p git
+
+# Default nixos directory - /etc/nixos
 mkdir -p /mnt/etc
 git clone https://github.com/Kaboupi/nixos-dotfiles.git /mnt/etc/nixos/
 cd /mnt/etc/nixos
@@ -65,9 +67,18 @@ Edit `config.nix` with your parameters:
 {
   username = "username";
   hostname = "my-nixos";
+
+  defaultEditor = "nvim";
+
   sshPort = 2222;
 
-  # Other params...
+  pkgsOptions = {
+    # Ex.: Turn off caelestia-shell if you want to
+    # configure waybar/quickshell/etc. yourself
+    caelestia = { install = false; };
+
+    # etc... 
+  };
 }
 ```
 
@@ -79,14 +90,19 @@ git add -A
 
 ### 5. Install
 
+Install the NixOS using your hostname.
+
 ```bash
-nixos-install --flake .#my-nixos --no-root-passwd
+nixos-install --flake .#my-nixos
 ```
 
 > Replace `my-nixos` with your `hostname` from `config.nix` if changed.
 
-The `--no-root-passwd` flag skips setting a root password during install.
-You will configure `sudo` access through the user's `wheel` group instead.
+Add the default password for your user.
+
+```bash
+nixos-enter --root /mnt -c 'passwd <your-username>'
+```
 
 ### 6. Reboot
 
@@ -145,8 +161,9 @@ Edit `config.nix`:
 ```nix
 # user packages
 userPackages = [
-  "curl"
-  "git"
+  "eza"
+  "fastfetch"
+  "lsd"
   # add more here
 ];
 
