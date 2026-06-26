@@ -4,6 +4,7 @@ let
   basePackages = [
     "bat"
     "btop"
+    "chafa"
     "curl"
     "fail2ban"
     "fd"

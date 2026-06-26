@@ -28,7 +28,6 @@
       mkHost = hostname: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        # TODO: Expand
         specialArgs = { inherit cfg inputs; };
 
         modules = [

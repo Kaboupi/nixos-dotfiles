@@ -1,0 +1,68 @@
+# NOTE: based on Restore and save Nix Store v7
+name: "Test NixOS with advanced caching"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Nix cache
+        uses: nix-community/cache-nix-action@v7
+        id: nix-cache
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**.nix', '**/flake.lock', '**/flake.nix') }}
+
+          restore-prefixes-first-match: |
+            nix-${{ runner.os }}-
+            nix-
+
+          restore-prefixes-all-matches: |
+            nix-${{ runner.os }}-
+            nix-
+
+          lookup-only: ${{ github.event_name == 'pull_request' }}
+          gc-max-store-size: 8G
+          backend: actions
+
+      - name: Show cache status
+        run: |
+          echo "Cache restored: ${{ steps.nix-cache.outputs.cache-restored }}"
+          echo "Primary key: ${{ steps.nix-cache.outputs.primary-key }}"
+
+      - name: Lint Nix files
+        id: lint
+        run: |
+          make lint
+
+      - name: Build configurations
+        id: build
+        run: |
+          make build-all-hosts
+
+      - name: Run flake check
+        id: check
+        run: |
+          make check
+
+      - name: Clean up after success
+        if: always() && (steps.lint.result == 'success' || steps.build.result == 'success' || steps.check.result == 'success')
+        run: |
+          nix-collect-garbage --max-freed 2G || true
+
+      - name: Clean up on failure
+        if: failure()
+        run: |
+          nix-collect-garbage --max-freed 2G || true
