@@ -40,7 +40,7 @@ clean:
 	@echo "✅ Cleanup complete"
 
 build-all-hosts:
-	@echo "🔨 Building all NixOS configurations..."
+	@echo "Building all NixOS configurations..."
 	@for host in $$(nix eval --json .#nixosConfigurations | jq -r 'keys[]'); do \
 		echo "Building $$host..."; \
 		nix build .#nixosConfigurations.$$host.config.system.build.toplevel || exit 1; \
