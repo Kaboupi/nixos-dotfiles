@@ -12,10 +12,10 @@ Modular NixOS configuration with Hyprland, built on Nix Flakes.
 
 ---
 
-> [!WARNING]
+> [!NOTE]
 > 
-> This repo is under active changes,
-> clone and use **at your own risk**!
+> Some funcionality may not work
+> as expected, see issues for more info.
 
 ---
 
