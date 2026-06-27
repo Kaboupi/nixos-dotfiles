@@ -12,7 +12,7 @@ Modular NixOS configuration with Hyprland, built on Nix Flakes.
 
 ---
 
-> [!INFO]
+> [!INFORMATION]
 > 
 > Some funcionality may not work
 > as expected, see issues for more info.
