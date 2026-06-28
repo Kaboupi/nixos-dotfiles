@@ -2,6 +2,8 @@
 { cfg, ... }:
 
 {
-  security.rtkit.enable = true;
+  security.rtkit = {
+    enable = true;
+  };
 }
 

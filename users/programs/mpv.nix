@@ -1,12 +1,10 @@
-{ pkgs, cfg, lib, ... }:
+{ pkgs, cfg, ... }:
 
 {
   programs.mpv = {
     enable = true;
 
     options = {
-      # FIX: Check if it fixes the issue:
-      # https://github.com/Kaboupi/nixos-dotfiles/issues/6
       vo = "gpu-next";
       gpu-context = "wayland";  # Wayland >> XWayland
       hwdec = "auto-safe";  # safe hardware decoding
