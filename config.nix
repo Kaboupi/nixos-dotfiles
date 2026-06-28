@@ -38,6 +38,7 @@
   pkgsOptions = {
     hyprland = {
       install = true;
+      # NOTE: Dummy var
       mainMod = "SUPER";
     };
     caelestia = { install = true; };
