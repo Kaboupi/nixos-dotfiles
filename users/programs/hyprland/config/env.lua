@@ -1,0 +1,3 @@
+---@diagnostic disable: undefined-global
+---@module 'hl'
+-- TODO: Fill in
