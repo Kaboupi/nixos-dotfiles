@@ -5,6 +5,7 @@
     ./programs/caelestia.nix
     ./programs/firefox.nix
     ./programs/kitty.nix
+    ./programs/hyprland
     ./programs/yazi.nix
   ];
 
@@ -16,7 +17,6 @@
   };
 
   home.file = {
-    ".config/hypr".source = ./config/hypr;
     ".config/rofi".source = ./config/rofi;
   };
 
