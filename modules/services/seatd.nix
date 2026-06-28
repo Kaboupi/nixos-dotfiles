@@ -1,8 +1,7 @@
 { ... }:
 
 {
-  services.blueman = {
+  services.seatd = {
     enable = true;
   };
 }
-

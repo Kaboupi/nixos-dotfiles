@@ -1,6 +1,8 @@
 { ... }:
 
 {
-  services.tumbler.enable = true;
+  services.tumbler = {
+    enable = true;
+  };
 }
 

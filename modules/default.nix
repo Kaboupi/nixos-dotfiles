@@ -23,6 +23,7 @@
     ./services/openssh.nix
     ./services/pipewire.nix
     ./services/rtkit.nix
+    ./services/seatd.nix
     ./services/tumbler.nix
   ];
 }

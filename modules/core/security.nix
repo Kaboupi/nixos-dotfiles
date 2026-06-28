@@ -1,5 +1,7 @@
 { cfg, pkgs, ... }:
 
 {
-  security.polkit.enable = true;
+  security.polkit = {
+    enable = true;
+  };
 }
