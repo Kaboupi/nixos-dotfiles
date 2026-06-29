@@ -4,8 +4,9 @@
   imports = [
     ./programs/caelestia.nix
     ./programs/firefox.nix
-    ./programs/kitty.nix
     ./programs/hyprland
+    ./programs/kitty.nix
+    ./programs/rofi.nix
     ./programs/yazi.nix
   ];
 
@@ -16,9 +17,7 @@
     EDITOR = cfg.defaultEditor;
   };
 
-  home.file = {
-    ".config/rofi".source = ./config/rofi;
-  };
+  home.file = {};
 
   xdg.mimeApps = {
     enable = true;
