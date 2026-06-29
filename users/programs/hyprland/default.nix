@@ -7,13 +7,13 @@ let
   };
 
   luaModules = [
+    "animations"
     "env"
     "exec"
     "general"
     "keybinds"
     "monitors"
-    "windowrules"
-    "animations"
+    "rules"
   ];
 in 
 {

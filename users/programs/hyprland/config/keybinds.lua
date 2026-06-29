@@ -31,15 +31,24 @@ hl.bind(mainMod .. " + " .. "P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + " .. "S", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
 
+-- Caelestia-shell
+
+hl.bind(
+	mainMod .. " + " .. "O",
+	hl.dsp.exec_cmd(
+		"pgrep -f 'quickshell.*caelestia-shell' > /dev/null && caelestia-shell kill || caelestia-shell -n -d"
+	)
+)
+
 -- Rofi
 
 hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "R", hl.dsp.exec_cmd("rofi -show filebrowser"))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "R", hl.dsp.exec_cmd("rofi -show run"))
 hl.bind(mainMod .. " + " .. "Tab", hl.dsp.exec_cmd("rofi -show window"))
 
 -- Fullscreen
 
-hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "F", hl.dsp.window.fullscreen())
 
 -- Arrows
