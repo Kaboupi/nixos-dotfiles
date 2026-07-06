@@ -24,6 +24,11 @@ in
     # NOTE: Bye bye `hyprlang`
     configType = "lua";
 
-    extraLuaFiles = lib.attrsets.genAttrs luaModules mkLuaFile;
+    extraLuaFiles = {
+      variables = {
+        content = ./variables.lua;
+        autoLoad = true;
+      };
+    } // (lib.attrsets.genAttrs luaModules mkLuaFile);
   };
 }

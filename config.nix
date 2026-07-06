@@ -1,4 +1,6 @@
-{
+let
+  installationDir = "/etc/nixos";
+in {
   username = "kaboupi";
   hostname = "nixos-homelab";
 
@@ -30,6 +32,7 @@
     "lsd"
     "obs-studio"
     "telegram-desktop"
+    "spotify"
   ];
 
   extraPackages = [];
@@ -53,11 +56,11 @@
     lla = "lsd -l -a -1 --color=auto";
     ls = "lsd --color=auto";
     n = "nvim";
-    update = "sudo nixos-rebuild switch --flake /etc/nixos";
+    update = "sudo nixos-rebuild switch --flake ${installationDir}";
   };
 
   devShells = {
-    py3 = "nix-shell /etc/nixos/shells/py3.nix";
+    py3 = "nix-shell ${installationDir}/shells/py3.nix";
   };
 
   # NOTE: It's not recommended to change this variable.
