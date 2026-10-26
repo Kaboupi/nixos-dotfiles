@@ -3,7 +3,6 @@
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("wayvnc")
 	-- TODO: Assign a variable to '/etc/nixos' abs path
 	-- from `config.nix` -> installationDir
 	hl.exec_cmd("hyprpaper --config /etc/nixos/users/programs/hyprland/tools/hyprpaper.conf")
