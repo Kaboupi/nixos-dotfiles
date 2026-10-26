@@ -1,10 +1,12 @@
 ---@diagnostic disable: undefined-global
 ---@module 'hl'
 
+local vars = require("variables")
+
 hl.window_rule({
 	name = "wr-kitty",
 	opacity = "0.97 0.85 1.0",
-	match = { class = "^(kitty)$" },
+	match = { class = "^(" .. vars.terminal .. ")$" },
 })
 
 hl.window_rule({
@@ -13,14 +15,14 @@ hl.window_rule({
 	center = true,
 	size = { 1100, 650 },
 	opacity = "0.95 0.75 1.0",
-	match = { class = "^(yazi_floating)$" },
+	match = { class = "^(" .. vars.explorer.class .. ")$" },
 })
 
 hl.window_rule({
 	name = "wr-loupe",
 	float = true,
 	center = true,
-	match = { class = "^(loupe)$" },
+	match = { class = "^(" .. vars.viewers.image .. ")$" },
 })
 
 --> ROFI START <--
@@ -45,7 +47,7 @@ hl.window_rule({
 	name = "wr-mpv-fullscreen",
 	keep_aspect_ratio = true,
 	idle_inhibit = "focus",
-	match = { class = "^(mpv)$" },
+	match = { class = "^(" .. vars.viewers.video .. ")$" },
 })
 
 hl.window_rule({

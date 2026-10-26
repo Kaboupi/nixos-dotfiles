@@ -24,7 +24,14 @@
   users.users.${cfg.username} = {
     description = cfg.username;
     isNormalUser = true;
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "input"
+      "networkmanager"
+      "render"
+      "video"
+      "wheel"
+    ];
 
     packages = map (name: pkgs.${name}) cfg.userPackages;
 

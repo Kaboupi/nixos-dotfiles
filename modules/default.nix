@@ -19,7 +19,10 @@
     ./services/blueman.nix
     ./services/display-manager.nix
     ./services/docker.nix
+    ./services/fail2ban.nix
+    ./services/gitlab-runner.nix
     ./services/greetd.nix
+    ./services/k3s.nix
     ./services/openssh.nix
     ./services/pipewire.nix
     ./services/rtkit.nix
