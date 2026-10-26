@@ -22,12 +22,12 @@ source .venv/bin/activate
 echo "  🐍 Virtual environment activated"
 
 if [ ! -f ".gitignore" ]; then
-  cp "${BASE_DIR}/templates/gitignore" .gitignore
+  cp "${BASE_DIR}/templates/py3/gitignore" .gitignore
   echo "  📄 Created sample .gitignore"
 fi
 
 if [ ! -f "pyproject.toml" ]; then
-  cp "${BASE_DIR}/templates/pyproject.toml" pyproject.toml
+  cp "${BASE_DIR}/templates/py3/pyproject.toml" pyproject.toml
   echo "  📄 Created sample pyproject.toml"
 fi
 
@@ -37,7 +37,7 @@ if [ ! -f "requirements.txt" ] && [ ! -f "requirements-dev.txt" ]; then
 fi
 
 if [ ! -f "Makefile" ]; then
-  cp "${BASE_DIR}/templates/Makefile" Makefile
+  cp "${BASE_DIR}/templates/py3/Makefile" Makefile
   echo "  📄 Created sample Makefile"
 fi
 

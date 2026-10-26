@@ -5,7 +5,7 @@ let
     name = "py3-scripts";
     paths = [
       (pkgs.writeShellScriptBin "setup-pyproject" ''
-        BASE_DIR="${./.}" ${builtins.readFile ./scripts/setup.sh}
+        BASE_DIR="${./.}" ${builtins.readFile ./scripts/py3-setup.sh}
       '')
     ];
   };

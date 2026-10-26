@@ -1,4 +1,4 @@
-{ ... }:
+{ cfg, ... }:
 
 {
   services.fail2ban = {
@@ -6,7 +6,6 @@
 
     maxretry = 3;
     bantime = "180m";
-    findtime = "30m";
 
     ignoreIP = [
       "127.0.0.1/8"
@@ -14,13 +13,13 @@
       "172.16.0.0/12"
     ];
 
-    jails = {
-      sshd = ''
-        enabled = true;
-        port = ssh
-        filter = sshd
-        maxretry = 3
-      '';
+    jails.DEFAULT.settings.findtime = "30m";
+
+    jails.sshd.settings = {
+      enabled = true;
+      filter = "sshd";
+      port = toString cfg.sshPort;
+      maxretry = 3;
     };
   };
 }
